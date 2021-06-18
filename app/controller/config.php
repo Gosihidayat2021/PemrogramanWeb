@@ -1,10 +1,10 @@
 <?php
-// Konfigurasi basis data
+// Configuration de la base de données
 $dsn = 'mysql:dbname=test;host=localhost';
 $username = 'root';
 $password = '';
 
 
-// jalur absolut ke direktori proyek SUR DEV-ISI
+// chemin absolu vers le répertoire du projet SUR DEV-ISI 
 $root = dirname(dirname(__DIR__)) . "/";
 

@@ -9,11 +9,11 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
 
-    <h2>Bagaimana saya harus berpakaian untuk pergi ke vaksin ?</h2>
+    <h2>How should I dress to go for the vaccine?</h2>
     <div>
-        <h3 class="h3">Dia sedang melakukan <strong><span id="degree"></span> derajat</strong> di luar di <span
+        <h3 class="h3">He is currently doing <strong><span id="degree"></span> degrees</strong> outside at <span
                     id="ville"></span> !</h3>
-        <span class="h5">Kami menyarankan Anda untuk mendapatkan vaksinasi di: </span>
+        <span class="h5">We advise you to get vaccinated by:</span>
         <img id="habit" src="" height="200" width="200" alt="image habit">
     </div>
 </div>
@@ -49,4 +49,4 @@ require($root . '/app/view/fragment/fragmentHeader.html');
 
 <?php
 include $root . '/app/view/fragment/fragmentFooter.html'; ?>
-<p><em>Data diambil dari OpenWheatherApi</em></p>
+<p><em>Data retrieved from OpenWheatherApi</em></p>

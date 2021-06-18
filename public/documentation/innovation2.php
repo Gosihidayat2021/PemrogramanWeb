@@ -9,15 +9,15 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.html';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h3>Dokumentasi: Bagaimana saya bisa mendapatkan vaksinasi?</h3>
-    <h4>Aspek inovatif</h4>
-    Kami telah memilih untuk membuat halaman yang memungkinkan pengguna untuk memilih kebiasaan yang disesuaikan
-    untuk mendapatkan vaksinasi. Tergantung pada suhu luar (di Troyes)
-    kami menyarankan Anda berbagai jenis kebiasaan agar senyaman mungkin selama vaksinasi.
+    <h3>Documentation: How should I dress to be vaccinated?</h3>
+    <h4>Innovative aspect</h4>
+    We have chosen to create a one-page page to help the user choose suitable clothes.
+    to get vaccinated. Depending on the outside temperature (in Troyes)
+    we recommend different types of clothes to be as comfortable as possible during the vaccination.
 
 
-    <h4> Dokumentasi teknis</h4>
-    Untuk melakukan ini, kami telah menggunakan metode pengambilan untuk memulihkan suhu kota Troyes di Open Wheather
-    API. Kemudian, kami menampilkan suhu dan tergantung pada sel kami memiliki beberapa pakaian.
+    <h4> Technical documentation</h4>
+    To do this, we used the fetch method to retrieve the temperature of the city of Troyes on Open Wheather
+    API. Then we display the temperature and depending on it we recommend several clothes.
 </div>
 <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>

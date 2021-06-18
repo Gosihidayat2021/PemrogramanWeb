@@ -9,7 +9,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentJumbotron.html';
 
 
-    echo("<h2> Anda telah menerima semua dosis vaksin Anda</h2>");
+    echo("<h2> Vous avez déjà reçu toutes vos doses de vaccin</h2>");
 
     ?>
 
@@ -19,7 +19,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
             <th scope="col">Injection</th>
             <th scope="col">Vaccin</th>
             <th scope="col">Centre</th>
-            <th scope="col">Address</th>
+            <th scope="col">Adresse</th>
         </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
         $id = 1;
         foreach ($results as $dose) {
             printf("<tr><td>%d</td><td>%s</td><td>%s</td><td>%s</td></tr>", $id,
-                $dose['vaccin'], $dose['centre'], $dose['address']);
+                $dose['vaccin'], $dose['centre'], $dose['adresse']);
             $id++;
         }
         ?>

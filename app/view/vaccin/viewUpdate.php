@@ -9,12 +9,12 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
 
-    <h3>Modifier un vaccin</h3>
+    <h3>Edit a vaccine</h3>
     <form role="form" method='get' action='router2.php'>
         <div class="form-group">
             <input type="hidden" name='action' value='vaccinUpdated'>
 
-            <label for="vaccin">Pilih vaksin : </label>
+            <label for="vaccin">Select a vaccine: </label>
             <select class="form-control" id='vaccin' name='vaccin' style="width: 300px">
                 <?php
                 foreach ($vaccins as $vaccin) {
@@ -25,7 +25,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
             <br>
             <label for="doses">Dose : </label><br/><input type="number" name='doses' id='doses' value='' min='1'>
         </div>
-        <button class="btn btn-primary" type="submit">Ubah Dosis</button>
+        <button class="btn btn-primary" type="submit">Change the dose</button>
     </form>
 </div>
 <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>

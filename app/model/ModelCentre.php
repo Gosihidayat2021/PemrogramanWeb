@@ -3,14 +3,14 @@ require_once 'Model.php';
 
 class ModelCentre
 {
-    private $id, $label, $address;
+    private $id, $label, $adresse;
 
-    public function __construct($id = NULL, $label = NULL, $address = NULL)
+    public function __construct($id = NULL, $label = NULL, $adresse = NULL)
     {
         if (!is_null($id)) {
             $this->id = $id;
             $this->label = $label;
-            $this->address = $address;
+            $this->adresse = $adresse;
         }
     }
 
@@ -49,17 +49,17 @@ class ModelCentre
     /**
      * @return mixed|null
      */
-    public function getAddress()
+    public function getAdresse()
     {
-        return $this->address;
+        return $this->adresse;
     }
 
     /**
-     * @param mixed|null $address
+     * @param mixed|null $adresse
      */
-    public function setAddress($address)
+    public function setAdresse($adresse)
     {
-        $this->address = $address;
+        $this->adresse = $adresse;
     }
 
 
@@ -99,7 +99,7 @@ class ModelCentre
     {
         try {
             $database = Model::getInstance();
-            $query = "SELECT id, label, address FROM stock join centre on centre_id = id where quantite > 0 group by centre_id";
+            $query = "SELECT id, label, adresse FROM stock join centre on centre_id = id where quantite > 0 group by centre_id";
             $statement = $database->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelCentre");
@@ -114,7 +114,7 @@ class ModelCentre
     {
         try {
             $database = Model::getInstance();
-            $query = "SELECT id, label, address FROM stock join centre on centre_id = id where quantite > 0 and vaccin_id = :id group by centre_id";
+            $query = "SELECT id, label, adresse FROM stock join centre on centre_id = id where quantite > 0 and vaccin_id = :id group by centre_id";
             $statement = $database->prepare($query);
             $statement->execute(['id' => $vaccin_id]);
             $results = $statement->fetchAll(PDO::FETCH_CLASS, "ModelCentre");
@@ -125,25 +125,25 @@ class ModelCentre
         }
     }
 
-    public static function insert($label, $address)
+    public static function insert($label, $adresse)
     {
         try {
             $database = Model::getInstance();
 
-            // Menemukan nilai kunci = maks (id) + 1
+            // recherche de la valeur de la clé = max(id) + 1
             $query = "select max(id) from centre";
             $statement = $database->query($query);
             $tuple = $statement->fetch();
             $id = $tuple['0'];
             $id++;
 
-            // Menambahkan tupel baru
-            $query = "insert into centre value (:id, :label, :address)";
+            // ajout d'un nouveau tuple;
+            $query = "insert into centre value (:id, :label, :adresse)";
             $statement = $database->prepare($query);
             $statement->execute([
                 'id' => $id,
                 'label' => $label,
-                'address' => $address
+                'adresse' => $adresse
             ]);
             return $label;
         } catch (PDOException $e) {
