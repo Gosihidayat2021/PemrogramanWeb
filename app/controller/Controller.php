@@ -6,10 +6,10 @@ require_once "../model/ModelStock.php";
 
 class Controller
 {
-    public static function accueil()
+    public static function Home()
     {
         include 'config.php';
-        $vue = $root . '/app/view/viewAccueil.php';
+        $vue = $root . '/app/view/viewHome.php';
         require($vue);
     }
 
@@ -33,10 +33,10 @@ class Controller
         require($vue);
     }
 
-    public static function meteo()
+    public static function weather()
     {
         include 'config.php';
-        $vue = $root . '/app/view/vaccin/meteo.php';
+        $vue = $root . '/app/view/vaccin/weather.php';
         require($vue);
     }
 
