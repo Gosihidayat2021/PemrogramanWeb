@@ -33,7 +33,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
             ?>
         </div>
         <p/>
-        <button class="btn btn-primary" type="submit">Ajouter</button>
+        <button class="btn btn-primary" type="submit">Tambah</button>
     </form>
     <p/>
 </div>

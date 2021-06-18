@@ -18,7 +18,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
             <label for="id">Address : </label><br/><input type="text" name='adresse' size='80'
                                                           value=''>
         </div>
-        <button class="btn btn-primary" type="submit">Ajouter</button>
+        <button class="btn btn-primary" type="submit">Tambah</button>
     </form>
 </div>
 <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>
