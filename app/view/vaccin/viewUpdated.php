@@ -11,12 +11,12 @@ include $root . '/app/view/fragment/fragmentJumbotron.html';
 
 <?php
 if ($results === 0) {
-    echo("<h3>Le vaccin " . $_GET['vaccin'] . " a été modifié </h3>");
+    echo("<h3>Vaksin " . $_GET['vaccin'] . " Telah dimodifikasi </h3>");
     echo("<ul>");
     echo("<li>Doses = " . $_GET['doses'] . "</li>");
     echo("</ul>");
 } else {
-    echo("<h3>Problème de modification du vaccin</h3>");
+    echo("<h3>Masalah modifikasi vaksin</h3>");
 }
 
 

@@ -3,7 +3,7 @@ require('../controller/ControllerCentre.php');
 require('../controller/Controller.php');
 require('../controller/ControllerPatient.php');
 require('../controller/ControllerVaccin.php');
-require('../controller/ControllerRendezVous.php');
+require('../controller/ControllerAppointment.php');
 require('../controller/ControllerStock.php');
 
 $query_string = $_SERVER['QUERY_STRING'];
@@ -41,8 +41,8 @@ switch ($action) {
         break;
 
     case "situationVaccinale":
-    case "priseRendezVous":
-        ControllerRendezVous::$action();
+    case "priseAppointment":
+        ControllerAppointment::$action();
         break;
 
     case "stockReadAllVaccin":
@@ -53,16 +53,16 @@ switch ($action) {
         break;
 
     case "graphStockVaccin":
-    case "meteo":
+    case "weather":
     case "mapCentreVaccination" :
     case "innovation1" :
     case "innovation2" :
     case "innovation3" :
-    case "avisGlobal" :
+    case "noticeGlobal" :
         Controller::$action();
         break;
 
     default:
-        $action = "accueil";
+        $action = "home";
         Controller::$action();
 }

@@ -9,17 +9,17 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.html';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h3>Documentation état des stocks de vaccins</h3>
-    <h4>Aspect innovant</h4>
-    Nous avons choisi de réaliser une <strong>utilisation originale</strong> des données de la base.
-    Pour ce faire nous avons réaliser un graphique représentant le nombre de vaccins totaux disponibles par catégorie.
+    <h3>Dokumentasi status stok vaksin</h3>
+    <h4>Aspek inovatif</h4>
+    Kami telah memilih untuk melakukan <strong>penggunaan asli</strong> data basis data.
+    Untuk melakukan ini, kami telah membuat grafik yang mewakili jumlah total vaksin yang tersedia berdasarkan kategori.
 
-    <h4> Documentation technique</h4>
-    Pour la réalisation, nous avons utilisé la librairie chart.js. Celle-ci nous permet de réaliser des graphiques en
-    javascript facilement.
-    Nous avons transférer les données php dans du js en utilisant un json_encode.
-    Puis nous avons appellé les fonctions de la librairie pour obtenir un graphique à barre avec des
-    couleurs personnalisées.
+    <h4> Dokumentasi teknis</h4>
+    Untuk realisasinya, kami telah menggunakan bagan toko buku.js. Ini memungkinkan kita untuk membuat grafik dalam
+    javascript dengan mudah.
+    Kami mentransfer data php di js menggunakan json_encode.
+    Kemudian kita memanggil fungsi perpustakaan untuk mendapatkan grafik batang dengan
+    warna kustom.
 
 </div>
 <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>

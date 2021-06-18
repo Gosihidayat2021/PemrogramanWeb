@@ -42,7 +42,7 @@ WHERE centre.id = stock.centre_id and vaccin.id = stock.vaccin_id and quantite !
             }
         }
         $results = ModelStock::insert(htmlspecialchars($_GET['stock_centre']), $doses);
-        // ----- Construction chemin de la vue
+        // ----- Lihat konstruksi jalur
         include 'config.php';
         $vue = $root . '/app/view/stock/viewInserted.php';
         require($vue);

@@ -9,7 +9,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
 
-    <h3>Attribuer des vaccins pour un centre</h3>
+    <h3>Tetapkan vaksin untuk pusat</h3>
     <form role="form" method='get' action='router2.php'>
         <div class="form-group">
             <input type="hidden" name='action' value='stockCreated'>
@@ -33,7 +33,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
             ?>
         </div>
         <p/>
-        <button class="btn btn-primary" type="submit">Ajouter</button>
+        <button class="btn btn-primary" type="submit">Tambah</button>
     </form>
     <p/>
 </div>

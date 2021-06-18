@@ -4,7 +4,7 @@ require_once '../model/ModelCentre.php';
 class ControllerCentre
 {
 
-    // Liste des centres
+    // List Centre
     public static function centreReadAll()
     {
         $results = ModelCentre::getAll();
@@ -14,7 +14,7 @@ class ControllerCentre
 
     public static function centreCreate()
     {
-        // ----- Construction chemin de la vue
+        // ----- Lihat konstruksi jalur
         include 'config.php';
         $vue = $root . '/app/view/centre/viewInsert.php';
         require($vue);
@@ -22,11 +22,11 @@ class ControllerCentre
 
     public static function centreCreated()
     {
-        // ajouter une validation des informations du formulaire
+        // Tambahkan validasi informasi formulir
         $results = ModelCentre::insert(
-            htmlspecialchars($_GET['label']), htmlspecialchars($_GET['adresse'])
+            htmlspecialchars($_GET['label']), htmlspecialchars($_GET['address'])
         );
-        // ----- Construction chemin de la vue
+        // ----- Lihat konstruksi jalur
         include 'config.php';
         $vue = $root . '/app/view/centre/viewInserted.php';
         require($vue);

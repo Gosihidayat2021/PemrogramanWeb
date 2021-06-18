@@ -3,15 +3,15 @@ require_once 'Model.php';
 
 class ModelPatient
 {
-    private $id, $nom, $prenom, $adresse;
+    private $id, $lastname, $firstname, $address;
 
-    public function __construct($id = NULL, $nom = NULL, $prenom = NULL, $adresse = NULL)
+    public function __construct($id = NULL, $lastname = NULL, $firstname = NULL, $address = NULL)
     {
         if (!is_null($id)) {
             $this->id = $id;
-            $this->nom = $nom;
-            $this->prenom = $prenom;
-            $this->adresse = $adresse;
+            $this->lastname = $lastname;
+            $this->firstname = $firstname;
+            $this->address = $address;
         }
     }
 
@@ -34,49 +34,49 @@ class ModelPatient
     /**
      * @return mixed|null
      */
-    public function getNom()
+    public function getLastname()
     {
-        return $this->nom;
+        return $this->lastname;
     }
 
     /**
-     * @param mixed|null $nom
+     * @param mixed|null $lastname
      */
-    public function setNom($nom)
+    public function setLastname($lastname)
     {
-        $this->nom = $nom;
-    }
-
-    /**
-     * @return mixed|null
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * @param mixed|null $prenom
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
+        $this->lastname = $lastname;
     }
 
     /**
      * @return mixed|null
      */
-    public function getAdresse()
+    public function getFirstname()
     {
-        return $this->adresse;
+        return $this->firstname;
     }
 
     /**
-     * @param mixed|null $adresse
+     * @param mixed|null $firstname
      */
-    public function setAdresse($adresse)
+    public function setFirstname($firstname)
     {
-        $this->adresse = $adresse;
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return mixed|null
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param mixed|null $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
     }
 
     public static function getAll()
@@ -94,28 +94,28 @@ class ModelPatient
         }
     }
 
-    public static function insert($nom, $prenom, $adresse)
+    public static function insert($lastname, $firstname, $address)
     {
         try {
             $database = Model::getInstance();
 
-            // recherche de la valeur de la clé = max(id) + 1
+            // Menemukan nilai kunci = maks (id) + 1
             $query = "select max(id) from patient";
             $statement = $database->query($query);
             $tuple = $statement->fetch();
             $id = $tuple['0'];
             $id++;
 
-            // ajout d'un nouveau tuple;
-            $query = "insert into patient value (:id, :nom, :prenom, :adresse)";
+            // Menambahkan tupel baru
+            $query = "insert into patient value (:id, :lastname, :firstname, :address)";
             $statement = $database->prepare($query);
             $statement->execute([
                 'id' => $id,
-                'nom' => $nom,
-                'prenom' => $prenom,
-                'adresse' => $adresse
+                'lastname' => $lastname,
+                'firstname' => $firstname,
+                'address' => $address
             ]);
-            return array("nom" => $nom, "prenom" => $prenom);
+            return array("lastname" => $lastname, "firstname" => $firstname);
         } catch (PDOException $e) {
             printf("%s - %s<p/>\n", $e->getCode(), $e->getMessage());
             return -1;

@@ -1,12 +1,12 @@
 <?php
 require_once 'Model.php';
 
-class ModelRendezVous
+class ModelAppointment
 {
     private $centre_id, $patient_id, $injection, $vaccin_id;
 
     /**
-     * ModelRendezVous constructor.
+     * ModelAppointment constructor.
      * @param $centre_id
      * @param $patient_id
      * @param $injection
@@ -26,7 +26,7 @@ class ModelRendezVous
     {
         try {
             $database = Model::getInstance();
-            $query = "SELECT patient.id, vaccin_id, vaccin.label as vaccin, centre.label as centre, centre.adresse FROM rendezvous join patient on patient.id = patient_id join vaccin on vaccin_id = vaccin.id join centre on centre_id = centre.id where patient.id = :id order by injection ASC";
+            $query = "SELECT patient.id, vaccin_id, vaccin.label as vaccin, centre.label as centre, centre.adresse FROM appointment join patient on patient.id = patient_id join vaccin on vaccin_id = vaccin.id join centre on centre_id = centre.id where patient.id = :id order by injection ASC";
             $statement = $database->prepare($query);
             $statement->execute(['id' => $id]);
             $results = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -69,8 +69,8 @@ class ModelRendezVous
             ]);
 
 
-            // Update the patient folder
-            $insert_rdv = "insert into rendezvous values(:cid, :pid, :injection, :vid)";
+            // Update the patient 
+            $insert_rdv = "insert into appointment values(:cid, :pid, :injection, :vid)";
             $statement = $database->prepare($insert_rdv);
             $statement->execute([
                 'cid' => $centre_id,

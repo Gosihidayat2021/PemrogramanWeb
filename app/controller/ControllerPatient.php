@@ -33,7 +33,7 @@ class ControllerPatient
     public static function patientCreated()
     {
         $results = ModelPatient::insert(
-            htmlspecialchars($_GET['nom']), htmlspecialchars($_GET['prenom']), htmlspecialchars($_GET['adresse'])
+            htmlspecialchars($_GET['last name']), htmlspecialchars($_GET['first name']), htmlspecialchars($_GET['address'])
         );
 
         include 'config.php';

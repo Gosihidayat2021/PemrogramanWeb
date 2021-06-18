@@ -7,7 +7,7 @@ class ControllerVaccin
     public static function vaccinReadAll()
     {
         $vaccins = ModelVaccin::getAll();
-        // ----- Construction chemin de la vue
+        // ----- Lihat konstruksi jalur
         include 'config.php';
         $vue = $root . '/app/view/vaccin/viewAll.php';
         require($vue);
@@ -16,17 +16,17 @@ class ControllerVaccin
     // Affiche le formulaire de creation d'un vaccin
     public static function vaccinCreate()
     {
-        // ----- Construction chemin de la vue
+        // ----- Lihat konstruksi jalur
         include 'config.php';
         $vue = $root . '/app/view/vaccin/viewInsert.php';
         require($vue);
     }
 
-    // Affiche un formulaire pour récupérer les informations d'un nouveau vaccin.
-    // La clé est gérée par le systeme et pas par l'internaute
+    // Menampilkan formulir untuk mengambil informasi untuk vaksin baru.
+    // Kuncinya dikelola oleh sistem dan bukan oleh pengguna Internet
     public static function vaccinCreated()
     {
-        // ajouter une validation des informations du formulaire
+        // tambahkan validasi informasi formulir
         $results = ModelVaccin::insert(htmlspecialchars($_GET['label']), htmlspecialchars($_GET['doses']));
 
         include 'config.php';
@@ -34,7 +34,7 @@ class ControllerVaccin
         require($vue);
     }
 
-    // Modifie les doses d'un vaccin
+    // Mengubah dosis vaksin
     public static function vaccinUpdate()
     {
         $vaccins = ModelVaccin::getAll();

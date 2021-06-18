@@ -1,16 +1,16 @@
 <?php
-require_once '../model/ModelRendezVous.php';
+require_once '../model/ModelAppointment.php';
 require_once '../model/ModelCentre.php';
 require_once '../model/ModelVaccin.php';
 
-class ControllerRendezVous
+class ControllerAppointment
 {
 
-    public static function situationVaccinale()
+    public static function vaccinationSituation()
     {
         $patient_id = $_GET['id'];
 
-        $results = ModelRendezVous::getSituationVaccinale($patient_id);
+        $results = ModelAppointment::getvaccinationSituation($patient_id);
 
         echo("<br>");
         echo("<br>");
@@ -36,28 +36,28 @@ class ControllerRendezVous
         require($view);
     }
 
-    // Le patient a choisi un centre, on lui attribut la dose la plus disponible
-    public static function priseRendezVous()
+    // Pasien telah memilih pusat, dia diberi dosis yang paling tersedia
+    public static function takenAppointment()
     {
         $centre_id = $_GET['centre'];
         $patient_id = $_GET['patient'];
 
-        $results = ModelRendezVous::getSituationVaccinale($patient_id);
+        $results = ModelAppointment::getvaccinationSituation($patient_id);
         if (count($results) == 0) {
-            $vaccin_id = ModelRendezVous::getMostAvailableVaccinByCentre($centre_id);
-            ModelRendezVous::vaccine($centre_id, $patient_id, $vaccin_id, 1);
+            $vaccin_id = ModelAppointment::getMostAvailableVaccinByCentre($centre_id);
+            ModelAppointment::vaccine($centre_id, $patient_id, $vaccin_id, 1);
         } else {
 
             $previous_vaccin_id = $results[0]['vaccin_id'];
 
-            ModelRendezVous::vaccine($centre_id, $patient_id, $previous_vaccin_id, count($results)+1);
+            ModelAppointment::vaccine($centre_id, $patient_id, $previous_vaccin_id, count($results)+1);
         }
 
-        $results = ModelRendezVous::getSituationVaccinale($patient_id);
+        $results = ModelAppointment::getvaccinationSituation($patient_id);
 
         include 'config.php';
 
-        $view = $root . '/app/view/rdv/priseRendezVous.php';
+        $view = $root . '/app/view/rdv/takenAppointment.php';
         require($view);
     }
 }

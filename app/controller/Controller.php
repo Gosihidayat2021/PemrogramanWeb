@@ -6,10 +6,10 @@ require_once "../model/ModelStock.php";
 
 class Controller
 {
-    public static function accueil()
+    public static function Home()
     {
         include 'config.php';
-        $vue = $root . '/app/view/viewAccueil.php';
+        $vue = $root . '/app/view/viewHome.php';
         require($vue);
     }
 
@@ -33,10 +33,10 @@ class Controller
         require($vue);
     }
 
-    public static function meteo()
+    public static function weather()
     {
         include 'config.php';
-        $vue = $root . '/app/view/vaccin/meteo.php';
+        $vue = $root . '/app/view/vaccin/weather.php';
         require($vue);
     }
 
@@ -60,9 +60,9 @@ class Controller
         require($vue);
     }
 
-    public static function avisGlobal() {
+    public static function noticeGlobal() {
         include 'config.php';
-        $vue = $root . '/public/documentation/avisGlobal.php';
+        $vue = $root . '/public/documentation/noticeGlobal.php';
         require($vue);
     }
 
