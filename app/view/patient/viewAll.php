@@ -10,14 +10,14 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
 
-    <h3>Liste des patients</h3>
+    <h3>List of patients</h3>
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
             <th scope="col">id</th>
-            <th scope="col">nom</th>
-            <th scope="col">prénom</th>
-            <th scope="col">adresse</th>
+            <th scope="col">last name</th>
+            <th scope="col">first name</th>
+            <th scope="col">address</th>
         </tr>
         </thead>
         <tbody>
