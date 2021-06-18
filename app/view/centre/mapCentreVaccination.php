@@ -64,13 +64,10 @@ require($root . '/app/view/fragment/fragmentHeader.html');
         $.ajax({
             url: 'https://api-adresse.data.gouv.fr/search/?q=' + adresse,
             success: function (data) {
-                // Target's GPS coordinates.
                 var target = L.latLng(data.features[0].geometry.coordinates[1], data.features[0].geometry.coordinates[0]);
 
-                // Set map's center to target with zoom 14.
                 map.setView(target, 14);
 
-                // Place a marker on the same location.
                 L.marker(target).addTo(map);
             }
         });
