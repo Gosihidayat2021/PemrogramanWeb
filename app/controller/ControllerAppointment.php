@@ -10,7 +10,7 @@ class ControllerAppointment
     {
         $patient_id = $_GET['id'];
 
-        $results = ModelAppointment::getvaccinationSituation($patient_id);
+        $results = ModelAppointment::getVaccinationSituation($patient_id);
 
         echo("<br>");
         echo("<br>");
