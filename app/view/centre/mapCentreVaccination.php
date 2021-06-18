@@ -8,8 +8,8 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.html';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h3 id="emplacement">Emplacement d'un centre de vaccination sur une carte</h3>
-    <label for="centre">Sélectionnez un centre : </label>
+    <h3 id="emplacement">Location of a vaccination center on a map</h3>
+    <label for="centre">Select a center : </label>
     <select class="form-control" id='centre' name='centre' style="width: 400px" onselect="initMap()"
             onchange="updateMap()">
         <?php
@@ -25,14 +25,9 @@ require($root . '/app/view/fragment/fragmentHeader.html');
 <script>
     var element = document.getElementById('osm-map');
 
-    // Height has to be set. You can do this in CSS too.
     element.style = 'height:600px;';
     var map = L.map(element);
 
-
-    // Create Leaflet map on map element.
-
-    // Add OSM tile layer to the Leaflet map.
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);

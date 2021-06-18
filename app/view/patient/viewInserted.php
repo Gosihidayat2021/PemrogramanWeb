@@ -13,9 +13,9 @@ include $root . '/app/view/fragment/fragmentJumbotron.html';
 if ($results) {
     $nom = $results["nom"];
     $prenom = $results["prenom"];
-    echo("<h3>Le nouveau patient : $nom $prenom a été ajouté </h3>");
+    echo("<h3>The new patient : $nom $prenom has been added </h3>");
 } else {
-    echo("<h3>Problème d'insertion du patient</h3>");
+    echo("<h3>Patient insertion problem</h3>");
 }
 
 echo("</div>");
