@@ -8,7 +8,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
 
-    <h3>Selection d'un patient</h3>
+    <h3>Pemilihan pasien</h3>
     <form role="form" method='get' action='router2.php'>
         <div class="form-group">
             <input type="hidden" name='action' value='situationVaccinale'>
@@ -16,12 +16,12 @@ require($root . '/app/view/fragment/fragmentHeader.html');
             <select class="form-control" id='id' name='id' style="width: 300px">
                 <?php
                 foreach ($results as $id) {
-                    printf("<option name='patient' value='%s'>%d : %s : %s</option>", $id->getId(), $id->getId(), $id->getNom(), $id->getPrenom());
+                    printf("<option name='patient' value='%s'>%d : %s : %s</option>", $id->getId(), $id->getId(), $id->getLastName(), $id->getFirstName());
                 }
                 ?>
             </select>
         </div>
-        <button class="btn btn-primary" type="submit">Valider</button>
+        <button class="btn btn-primary" type="submit">Validasi</button>
     </form>
 </div>
 
