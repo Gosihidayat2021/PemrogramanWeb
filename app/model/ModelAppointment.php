@@ -22,7 +22,7 @@ class ModelAppointment
         }
     }
 
-    public static function getSituationVaccinale($id)
+    public static function getVaccinationSituation($id)
     {
         try {
             $database = Model::getInstance();
