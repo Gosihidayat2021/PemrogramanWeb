@@ -10,13 +10,13 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
 
-    <h3>Liste des vaccins disponibles</h3>
+    <h3>Daftar vaksin yang tersedia</h3>
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
             <th scope="col">id</th>
             <th scope="col">label</th>
-            <th scope="col">dose</th>
+            <th scope="col">dosis</th>
         </tr>
         </thead>
         <tbody>

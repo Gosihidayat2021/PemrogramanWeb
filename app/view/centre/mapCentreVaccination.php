@@ -8,14 +8,14 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.html';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h3 id="emplacement">Emplacement d'un centre de vaccination sur une carte</h3>
-    <label for="centre">Sélectionnez un centre : </label>
+    <h3 id="emplacement">Lokasi pusat vaksinasi di peta</h3>
+    <label for="centre">Pilih pusat : </label>
     <select class="form-control" id='centre' name='centre' style="width: 400px" onselect="initMap()"
             onchange="updateMap()">
         <?php
         foreach ($results as $centre) {
-            printf("<option name='centre' value='%s' data-adresse='%s'>%s: %s: %s</option>", $centre->getId(),
-                $centre->getAdresse(), $centre->getId(), $centre->getLabel(), $centre->getAdresse());
+            printf("<option name='centre' value='%s' data-address='%s'>%s: %s: %s</option>", $centre->getId(),
+                $centre->getAddress(), $centre->getId(), $centre->getLabel(), $centre->getAddress());
         }
         ?>
     </select>
@@ -25,14 +25,14 @@ require($root . '/app/view/fragment/fragmentHeader.html');
 <script>
     var element = document.getElementById('osm-map');
 
-    // Height has to be set. You can do this in CSS too.
+    // Mengatur tinggi elemen
     element.style = 'height:600px;';
     var map = L.map(element);
 
 
-    // Create Leaflet map on map element.
+    // Membuat peta pada element
 
-    // Add OSM tile layer to the Leaflet map.
+    // Menambahkan OSM
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -43,8 +43,8 @@ require($root . '/app/view/fragment/fragmentHeader.html');
 
         if (centre.length !== 0) {
             if (centre[0].selected) {
-                adresse = centre[0].dataset.adresse;
-                requestMap(adresse);
+                address = centre[0].dataset.address;
+                requestMap(address);
             }
         }
 
@@ -56,8 +56,8 @@ require($root . '/app/view/fragment/fragmentHeader.html');
         if (centre.length !== 0) {
             for (let i = 0; i < centre.length; i++) {
                 if (centre[i].selected) {
-                    adresse = centre[i].dataset.adresse;
-                    requestMap(adresse);
+                    address = centre[i].dataset.address;
+                    requestMap(address);
                 }
             }
 
@@ -65,17 +65,17 @@ require($root . '/app/view/fragment/fragmentHeader.html');
 
     }
 
-    function requestMap(adresse) {
+    function requestMap(address) {
         $.ajax({
-            url: 'https://api-adresse.data.gouv.fr/search/?q=' + adresse,
+            url: 'https://api-adresse.data.gouv.fr/search/?q=' + address,
             success: function (data) {
-                // Target's GPS coordinates.
+                // Tangkap koordinat dari GPS
                 var target = L.latLng(data.features[0].geometry.coordinates[1], data.features[0].geometry.coordinates[0]);
 
-                // Set map's center to target with zoom 14.
+                // Mengatur pusat peta dengan zoom x14
                 map.setView(target, 14);
 
-                // Place a marker on the same location.
+                // Memberikan penanda di tempat yang sama
                 L.marker(target).addTo(map);
             }
         });

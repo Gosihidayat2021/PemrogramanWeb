@@ -11,11 +11,11 @@ include $root . '/app/view/fragment/fragmentJumbotron.html';
 
 <?php
 if ($results) {
-    $nom = $results["nom"];
-    $prenom = $results["prenom"];
-    echo("<h3>Le nouveau patient : $nom $prenom a été ajouté </h3>");
+    $lastname = $results["lastname"];
+    $firstname = $results["firstname"];
+    echo("<h3>Pasien baru : $lastname $firstname telah ditambahkan </h3>");
 } else {
-    echo("<h3>Problème d'insertion du patient</h3>");
+    echo("<h3>Kesalahan menambahkan pasien</h3>");
 }
 
 echo("</div>");

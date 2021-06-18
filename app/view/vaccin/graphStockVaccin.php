@@ -8,7 +8,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     include $root . '/app/view/fragment/fragmentMenu.html';
     include $root . '/app/view/fragment/fragmentJumbotron.html';
     ?>
-    <h3>Nombre total de vaccins disponible</h3>
+    <h3>Jumlah total vaksin yang tersedia</h3>
     <div>
         <canvas width="80" height="25" id="myChart"></canvas>
     </div>
@@ -22,7 +22,7 @@ require($root . '/app/view/fragment/fragmentHeader.html');
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Nombre de vaccin(s) disponible(s)',
+            label: 'Jumlah vaksin(s) tersedia(s)',
             data: domData.map(x => x.quantite),
             backgroundColor: [
                 'rgb(99,190,252)',
