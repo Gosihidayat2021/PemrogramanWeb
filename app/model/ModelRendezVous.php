@@ -58,7 +58,7 @@ class ModelRendezVous
     public static function vaccine($centre_id, $patient_id, $vaccin_id, $injection)
     {
         try {
-            // Update the stock
+
             $database = Model::getInstance();
 
             $update = "update  stock set quantite = quantite - 1 where centre_id = :cid and vaccin_id = :vid";
@@ -69,7 +69,7 @@ class ModelRendezVous
             ]);
 
 
-            // Update the patient folder
+
             $insert_rdv = "insert into rendezvous values(:cid, :pid, :injection, :vid)";
             $statement = $database->prepare($insert_rdv);
             $statement->execute([

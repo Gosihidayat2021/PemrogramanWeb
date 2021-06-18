@@ -36,7 +36,7 @@ class ControllerRendezVous
         require($view);
     }
 
-    // Le patient a choisi un centre, on lui attribut la dose la plus disponible
+
     public static function priseRendezVous()
     {
         $centre_id = $_GET['centre'];
